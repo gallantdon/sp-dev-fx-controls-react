@@ -696,6 +696,13 @@ id="DropDownStyles"
       quill.setSelection(cursorPosition, textToInsert.length);
       quill.formatText(cursorPosition, textToInsert.length, 'link', urlToInsert);
     }
+    if (cursorPosition == 0) {
+      const textToInsert: string = this.state.insertUrlText !== undefined ? this.state.insertUrlText : this.state.insertUrl;
+      const urlToInsert: string = this.state.insertUrl;
+      quill.insertText(cursorPosition, textToInsert);
+      quill.setSelection(cursorPosition, textToInsert.length);
+      quill.formatText(cursorPosition, textToInsert.length, 'link', urlToInsert);
+    }
 
     this.setState({
       hideDialog: true,
